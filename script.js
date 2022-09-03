@@ -1,143 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+const playerScoreEl = document.getElementById('playerScore');
+const playerChoiceEl = document.getElementById('playerChoice');
+const ComputerScoreEl = document.getElementById('ComputerScore');
+const ComputerChoiceEl = document.getElementById('ComputerChoice');
+const resultText = document.getElementById('resultText');
 
-html {
-  box-sizing: border-box;
+const playerRock = document.getElementById('playerRock');
+const playerPaper = document.getElementById('playerPaper');
+const playerScissors = document.getElementById('playerScissors');
+const playerLizard = document.getElementById('playerLizard');
+const playerSpock = document.getElementById('playerSpock');
+
+const computerRock = document.getElementById('computerRock');
+const computerPaper = document.getElementById('computerPaper');
+const computerScissors = document.getElementById('computerScissors');
+const computerLizard = document.getElementById('computerLizard');
+const computerSpock = document.getElementById('computerSpock');
+
+const allGameIcons = document.querySelectorAll('.far');
+
+
+const choices = {
+  rock: { name: 'Rock', defeats: ['scissors', 'lizard'] },
+  paper: { name: 'Paper', defeats: ['rock', 'spock'] },
+  scissors: { name: 'Scissors', defeats: ['paper', 'lizard'] },
+  lizard: { name: 'Lizard', defeats: ['paper', 'spock'] },
+  spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
+};
+
+// Resect all 'selected' icons
+function resetSelected(){
+  allGameIcons.forEach((icon) => {
+    icon.classList.remove('selected');
+  });
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: whitesmoke;
-  font-family: Quicksand, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.game-container {
-  width: 530px;
-  height: 600px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 5px 10px 20px -5px rgba(0,0,0,0.3) 
-}
-
-.header {
-  background: rgb(55, 177, 94);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  color: white;
-  font-size: 30px;
-}
-
-.player-container,
-.computer-container {
-  margin: 50px;
-}
-
-h2 {
-  margin-bottom: 20px;
-}
-
-.far {
-  font-size: 50px;
-  margin-right: 40px;
-  User-select: none;
-}
-
-#player .far,
-#player .choice{
-  color:rgb(59, 205, 137);
-  cursor: pointer;
-}
-
-#computer .far,
-#computer .choice{
-  color:rgb(205, 69, 59);
-}
-
-#player .far:last-of-type,
-#computer .far:last-of-type{ 
-   margin-right: 0;
-}
-
-.selected {
-  color:black !important;
-}
-
-.reset-icon {
-  font-size: 30px;
-  cursor: pointer;
-  margin-left: 50px;
-}
-
-.result-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.result-text {
-  font-size: 40px;
-  margin: unset;
-  margin-top: 20px;
-}
-
-/* Media Query: Large Smartphone (Vertical) */
-@media screen and (max-width: 600px) {
-  .game-container {
-    width: 95%;
-    height: 580px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .player-container {
-    margin: 50px 0 25px 25px;
-  }
-
-  .far {
-    margin-right: 20px;
-  }
-
-  .reset-icon {
-    margin-top: 25px;
-    margin-left: 25px;
-  }
-}
-
-/* Media Query: iPhone (Vertical) */
-@media screen and (max-width: 376px) {
-  .game-container {
-    height: 550px;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  .player-container {
-    margin: 43px 0 25px 20px;
-  }
-
-  .far {
-    font-size: 43px;
-  }
-
-  .reset-icon {
-    margin-top: 15px;
-  }
-
-  .result-container {
-    margin: 0 20px;
+// Passing player selection value and styling icons
+function select(playerChoice) {
+  resetSelected();
+  // Add 'selected' styling & playerChoice
+  switch (playerChoice) {
+    case 'rock':
+      playerRock.classList.add('selected')
+      playerChoiceEl.textContent = '---Rock';
+      break;
+    case 'paper':
+    playerPaper.classList.add('selected')
+    playerChoiceEl.textContent = '---Paper';
+    break;
+    case 'scissors':
+      playerScissors.classList.add('selected')
+      playerChoiceEl.textContent = '---Scissors';
+      break;
+    case 'lizard':
+    playerLizard.classList.add('selected')
+    playerChoiceEl.textContent = '---Lizard';
+    break;
+    case 'spock':
+      playerSpock.classList.add('selected')
+      playerChoiceEl.textContent = '---Spock';
+      break;     
+    default:
+      break;
   }
 }
