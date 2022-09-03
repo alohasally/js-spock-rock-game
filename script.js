@@ -90,7 +90,7 @@ function checkResult(){
 
 // Passing player selection value and styling icons
 function select(playerChoice) {
-  resetSelected();
+  checkResult();
   // Add 'selected' styling & playerChoice
   switch (playerChoice) {
     case 'rock':
