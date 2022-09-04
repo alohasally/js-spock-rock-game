@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
 html {
   box-sizing: border-box;
@@ -8,7 +8,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background: whitesmoke;
-  font-family: Quicksand, sans-serif;
+  font-family: Lato, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,13 +17,13 @@ body {
 .game-container {
   width: 530px;
   height: 600px;
-  background: #fff;
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  box-shadow: 5px 10px 20px -5px rgba(0,0,0,0.3) 
 }
 
 .header {
-  background: rgb(55, 177, 94);
+  background: dodgerblue;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   height: 100px;
@@ -37,8 +37,7 @@ h1 {
   font-size: 30px;
 }
 
-.player-container,
-.computer-container {
+.player-container {
   margin: 50px;
 }
 
@@ -49,27 +48,27 @@ h2 {
 .far {
   font-size: 50px;
   margin-right: 40px;
-  User-select: none;
+  user-select: none;
 }
 
 #player .far,
-#player .choice{
-  color:rgb(59, 205, 137);
+#player .choice {
+  color: dodgerblue;
   cursor: pointer;
 }
 
 #computer .far,
-#computer .choice{
-  color:rgb(205, 69, 59);
+#computer .choice {
+  color: rgb(235, 43, 52);
 }
 
 #player .far:last-of-type,
-#computer .far:last-of-type{ 
-   margin-right: 0;
+#computer .far:last-of-type {
+  margin-right: 0;
 }
 
 .selected {
-  color:black !important;
+  color: black !important;
 }
 
 .reset-icon {
